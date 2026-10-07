@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>장금이네국밥 · Janggeumine Gukbap</title>
+<meta name="description" content="수원 영통 신원로 국밥집 장금이네국밥. 선지국밥, 돼지국밥, 소곱창국밥, 김치찌개.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4ede1; --ink: #231a14; --muted: #6b5d50; --red: #9e2a1c;
+    --board: #2b2420; --board-ink: #f1e6d4; --line: #d9ccb8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1b1613; --ink: #efe5d6; --muted: #b0a291; --red: #d6553f;
+      --board: #120f0d; --board-ink: #efe5d6; --line: #3a312a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink);
+         font: 16px/1.75 "Gowun Batang", "Noto Sans KR", serif; }
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+
+  .sign { background: var(--red); color: #fff; text-align: center; padding: 10px 16px;
+          font: 14px "Noto Sans KR", sans-serif; letter-spacing: 1px; }
+  .top { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 16px; }
+  .top .name { font: 32px "Black Han Sans", sans-serif; color: var(--ink); text-decoration: none; }
+  .top nav a { margin-left: 16px; color: var(--muted); text-decoration: none;
+               font: 14px "Noto Sans KR", sans-serif; }
+
+  .hero { position: relative; height: min(68vh, 560px); background: var(--board); overflow: hidden; }
+  .hero img { opacity: .85; }
+  .hero .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 16px 28px;
+               background: linear-gradient(transparent, rgba(0,0,0,.7)); color: #fff; }
+  .hero h1 { font: clamp(40px, 8vw, 72px)/1.1 "Black Han Sans", sans-serif; margin: 0; }
+  .hero p { margin: 6px 0 0; font-size: 18px; }
+
+  section { padding: 64px 0; }
+  h2 { font: 30px "Black Han Sans", sans-serif; margin: 0 0 4px; }
+  h2 small { font: 14px "Noto Sans KR", sans-serif; color: var(--muted); margin-left: 8px; }
+
+  .story { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+  .story .ph { aspect-ratio: 4/5; background: var(--line); }
+  .story p { font-size: 17px; }
+
+  .board { background: var(--board); color: var(--board-ink); padding: 40px 32px; }
+  .board h2 { color: var(--board-ink); }
+  .board h2 small { color: #bfae98; }
+  .menu { list-style: none; padding: 0; margin: 28px 0 0; }
+  .menu li { display: grid; grid-template-columns: 96px 1fr; gap: 18px; padding: 16px 0;
+             border-bottom: 1px dashed #5a4d43; }
+  .menu .thumb { width: 96px; height: 96px; background: #3c332d; }
+  .menu .row { display: flex; align-items: baseline; gap: 10px; }
+  .menu .ko { font: 24px "Black Han Sans", sans-serif; }
+  .menu .dots { flex: 1; border-bottom: 2px dotted #7a6a5c; transform: translateY(-6px); }
+  .menu .price { font: 700 20px "Noto Sans KR", sans-serif; }
+  .menu .en { font: 13px "Noto Sans KR", sans-serif; color: #bfae98; }
+  .menu .desc { margin: 2px 0 0; font-size: 15px; }
+
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-top: 24px; }
+  .gallery div { aspect-ratio: 4/3; background: var(--line); }
+
+  .notice { border: 2px solid var(--ink); padding: 28px; }
+  .notice .stamp { display: inline-block; border: 2px solid var(--red); color: var(--red);
+                   font: 700 13px "Noto Sans KR", sans-serif; padding: 2px 10px; transform: rotate(-3deg); }
+  .notice h3 { font: 24px "Black Han Sans", sans-serif; margin: 12px 0 8px; }
+  .notice p { margin: 0 0 10px; }
+  .notice .en { color: var(--muted); font: 14px/1.7 "Noto Sans KR", sans-serif; }
+
+  .visit { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .visit dl { margin: 0; }
+  .visit dt { font: 700 14px "Noto Sans KR", sans-serif; color: var(--red); margin-top: 16px; }
+  .visit dd { margin: 2px 0 0; }
+  .btn { display: inline-block; margin-top: 20px; padding: 10px 18px; background: var(--ink); color: var(--paper);
+         text-decoration: none; font: 700 14px "Noto Sans KR", sans-serif; }
+  .visit .ph { aspect-ratio: 4/3; background: var(--line); }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted);
+           font: 13px/1.8 "Noto Sans KR", sans-serif; }
+
+  @media (max-width: 720px) {
+    .story, .visit { grid-template-columns: 1fr; }
+    .top nav { display: none; }
+    .board { padding: 32px 18px; }
+    .menu li { grid-template-columns: 72px 1fr; }
+    .menu .thumb { width: 72px; height: 72px; }
+  }
+</style>
+</head>
+<body>
+<div class="sign">매일 아침 직접 끓이는 육수 · 수원 영통 신원로</div>
+
+<div class="top" style="max-width:980px;margin:0 auto">
+  <a class="name" href="#">장금이네국밥</a>
+  <nav><a href="#menu">메뉴</a><a href="#story">이야기</a><a href="#notice">소식</a><a href="#visit">오시는 길</a></nav>
+</div>
+
+<div class="hero">
+  <img src="images/hero.jpg" alt="장금이네국밥 대표 국밥" onerror="this.remove()">
+  <div class="cap"><div class="wrap">
+    <h1>뜨끈한 국밥 한 그릇</h1>
+    <p>장금이네국밥 · Janggeumine Gukbap, Suwon</p>
+  </div></div>
+</div>
+
+<section id="story">
+  <div class="wrap story">
+    <div class="ph"><img src="images/store.jpg" alt="가게 외관" onerror="this.remove()"></div>
+    <div>
+      <h2>장금이네 이야기</h2>
+      <p>2024년, 영통 신원로에 작은 국밥집을 열었습니다. 큰 솥에 뼈와 고기를 넣고 아침부터 오래 끓여,
+        점심엔 직장인 손님이, 저녁엔 동네 가족 손님이 찾아 주십니다.</p>
+      <p>화려하진 않아도 늘 같은 맛. 그게 저희가 지키고 싶은 한 가지입니다.</p>
+      <p style="color:var(--muted);font-size:15px">A small neighborhood gukbap house in Yeongtong, Suwon, open since 2024.
+        Broth simmered every morning, served the same way every day.</p>
+    </div>
+  </div>
+</section>
+
+<section id="menu" style="padding-top:0">
+  <div class="wrap">
+    <div class="board">
+      <h2>차림표<small>MENU</small></h2>
+      <ul class="menu">
+        <li><div class="thumb"><img src="images/seonji.jpg" alt="선지국밥" onerror="this.remove()"></div>
+          <div><div class="row"><span class="ko">선지국밥</span><span class="dots"></span><span class="price">11,000</span></div>
+          <div class="en">Seonji Gukbap · beef blood-curd soup</div>
+          <p class="desc">신선한 선지와 우거지를 넣어 깔끔하고 진하게.</p></div></li>
+        <li><div class="thumb"><img src="images/dwaeji.jpg" alt="돼지국밥" onerror="this.remove()"></div>
+          <div><div class="row"><span class="ko">돼지국밥</span><span class="dots"></span><span class="price">10,000</span></div>
+          <div class="en">Dwaeji Gukbap · pork bone-broth soup</div>
+          <p class="desc">뽀얀 사골 육수에 부드러운 돼지고기 듬뿍.</p></div></li>
+        <li><div class="thumb"><img src="images/gopchang.jpg" alt="소곱창국밥" onerror="this.remove()"></div>
+          <div><div class="row"><span class="ko">소곱창국밥</span><span class="dots"></span><span class="price">11,000</span></div>
+          <div class="en">Sogopchang Gukbap · beef tripe soup</div>
+          <p class="desc">쫄깃한 소곱창에 얼큰한 국물.</p></div></li>
+        <li><div class="thumb"><img src="images/kimchi.jpg" alt="김치찌개" onerror="this.remove()"></div>
+          <div><div class="row"><span class="ko">김치찌개</span><span class="dots"></span><span class="price">11,000</span></div>
+          <div class="en">Kimchi Jjigae · aged kimchi stew</div>
+          <p class="desc">푹 익은 김치와 돼지고기, 두부.</p></div></li>
+      </ul>
+    </div>
+    <div class="gallery">
+      <div><img src="images/inside1.jpg" alt="가게 내부" onerror="this.remove()"></div>
+      <div><img src="images/inside2.jpg" alt="반찬" onerror="this.remove()"></div>
+    </div>
+  </div>
+</section>
+
+<section id="notice" style="padding-top:0">
+  <div class="wrap">
+    <div class="notice">
+      <span class="stamp">준비 중</span>
+      <h3>전화 없이 주문·예약, 곧 시작합니다</h3>
+      <p>점심·저녁 바쁜 시간에 전화를 놓치는 일이 많아, 채팅으로 포장 주문과 자리 예약을 받는 서비스를
+        Anthropic의 Claude로 직접 만들고 있습니다. 메뉴나 알레르기 문의에도 바로 답해 드릴 예정입니다.</p>
+      <p class="en">Coming soon: chat-based takeout ordering and table reservations, built on Claude,
+        so our small team can spend less time on the phone and more time serving guests.</p>
+    </div>
+  </div>
+</section>
+
+<section id="visit" style="padding-top:0">
+  <div class="wrap visit">
+    <div>
+      <h2>오시는 길</h2>
+      <dl>
+        <dt>영업시간</dt><dd>10:00 – 15:00 · 17:00 – 21:00<br>브레이크타임 15:00 – 17:00</dd>
+        <dt>주소</dt><dd>경기도 수원시 영통구 신원로 101, 102호</dd>
+        <dt>Hours · Address</dt><dd>10am–3pm, 5pm–9pm (break 3–5pm)<br>102, 101 Sinwon-ro, Yeongtong-gu, Suwon-si, Gyeonggi-do</dd>
+        <dt>문의</dt><dd><a href="mailto:waterhan0493@yunnakji.com" style="color:inherit">waterhan0493@yunnakji.com</a></dd>
+      </dl>
+      <a class="btn" href="https://map.naver.com/p/search/%EA%B2%BD%EA%B8%B0%EB%8F%84%20%EC%88%98%EC%9B%90%EC%8B%9C%20%EC%98%81%ED%86%B5%EA%B5%AC%20%EC%8B%A0%EC%9B%90%EB%A1%9C%20101" target="_blank" rel="noopener">네이버 지도에서 보기</a>
+    </div>
+    <div class="ph"><img src="images/front.jpg" alt="장금이네국밥 간판과 입구" onerror="this.remove()"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    상호 장금이네국밥 · 대표 나선미 · 사업자등록번호 204-33-52068<br>
+    경기도 수원시 영통구 신원로 101, 102호 · © 2024 Janggeumine Gukbap
+  </div>
+</footer>
+</body>
+</html>
