@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found · Janggeumine AI</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#c4623a">
+<style>
+  :root {
+    --bg: #fbf8f3; --surface: #ffffff; --ink: #1d1a17; --muted: #6a625a;
+    --accent: #c4623a; --accent-soft: #f6e6dc; --line: #e7dfd4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161412; --surface: #1f1c19; --ink: #f2ece4; --muted: #ada397;
+      --accent: #e08158; --accent-soft: #3a2a21; --line: #332e29;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 16px/1.7 Inter, "Noto Sans KR", system-ui, sans-serif; }
+  a { color: var(--accent); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  header { border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; align-items: center; height: 64px; }
+  .brand { font-weight: 800; font-size: 18px; color: var(--ink); text-decoration: none; }
+  .brand span { color: var(--accent); }
+  main { padding: 88px 0; }
+  .badge { display: inline-block; font-size: 13px; font-weight: 600; color: var(--accent);
+           background: var(--accent-soft); padding: 4px 12px; border-radius: 6px; }
+  h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.15; letter-spacing: -1px; margin: 18px 0 12px; }
+  p { color: var(--muted); max-width: 560px; margin: 0 0 28px; }
+  .btn { display: inline-block; padding: 12px 20px; border-radius: 8px; font-weight: 600; text-decoration: none;
+         background: var(--ink); color: var(--bg); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap"><a class="brand" href="/">Janggeumine <span>AI</span></a></div>
+</header>
+<main>
+  <div class="wrap">
+    <span class="badge">404</span>
+    <h1>Page not found</h1>
+    <p>This page does not exist. 요청하신 페이지를 찾을 수 없습니다.</p>
+    <a class="btn" href="/">Go to the home page</a>
+  </div>
+</main>
+</body>
+</html>

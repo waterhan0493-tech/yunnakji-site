@@ -4,9 +4,85 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Janggeumine AI · Claude-powered ordering &amp; reservations for Korean restaurants</title>
-<meta name="description" content="Janggeumine AI is building an ordering chatbot and reservation agent for Korean restaurants, built entirely on Anthropic's Claude. Piloted at Janggeumine Gukbap in Suwon, Korea.">
+<meta name="description" content="Janggeumine AI is building an ordering chatbot and reservation agent for Korean restaurants, built on Anthropic's Claude. Open-source prototype; it will be piloted first at Janggeumine Gukbap in Suwon, Korea.">
+<link rel="canonical" href="https://yunnakji.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="logo.png">
+<meta name="theme-color" content="#c4623a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Janggeumine AI">
+<meta property="og:url" content="https://yunnakji.com/">
 <meta property="og:title" content="Janggeumine AI — built entirely on Claude">
 <meta property="og:description" content="AI ordering and reservations for small Korean restaurants, built entirely on Anthropic's Claude.">
+<meta property="og:image" content="https://yunnakji.com/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Storefront of Janggeumine Gukbap at 101 Sinwon-ro, Suwon">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://yunnakji.com/#organization",
+      "name": "Janggeumine Gukbap",
+      "legalName": "장금이네국밥",
+      "alternateName": ["장금이네국밥", "Janggeumine AI"],
+      "url": "https://yunnakji.com/",
+      "email": "waterhan0493@yunnakji.com",
+      "logo": "https://yunnakji.com/logo.png",
+      "image": "https://yunnakji.com/og.jpg",
+      "description": "Janggeumine Gukbap is a gukbap restaurant in Suwon, Korea, opened in December 2024. It is building Janggeumine AI, an ordering and reservation agent for small Korean restaurants, on Anthropic's Claude.",
+      "foundingDate": "2024-12",
+      "founder": {
+        "@type": "Person",
+        "name": "Sunmi Na",
+        "alternateName": "나선미"
+      },
+      "taxID": "204-33-52068",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "102, 101 Sinwon-ro, Yeongtong-gu",
+        "addressLocality": "Suwon-si",
+        "addressRegion": "Gyeonggi-do",
+        "addressCountry": "KR"
+      },
+      "sameAs": ["https://github.com/waterhan0493-tech/janggeumine-ai"]
+    },
+    {
+      "@type": "Restaurant",
+      "@id": "https://yunnakji.com/#restaurant",
+      "name": "Janggeumine Gukbap",
+      "alternateName": ["장금이네국밥"],
+      "url": "https://yunnakji.com/",
+      "email": "waterhan0493@yunnakji.com",
+      "image": "https://yunnakji.com/images/front.jpg",
+      "parentOrganization": {"@id": "https://yunnakji.com/#organization"},
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "102, 101 Sinwon-ro, Yeongtong-gu",
+        "addressLocality": "Suwon-si",
+        "addressRegion": "Gyeonggi-do",
+        "addressCountry": "KR"
+      },
+      "servesCuisine": "Korean",
+      "priceRange": "₩10,000–₩11,000",
+      "currenciesAccepted": "KRW",
+      "hasMenu": {
+        "@type": "Menu",
+        "name": "Menu",
+        "hasMenuItem": [
+          {"@type": "MenuItem", "name": "Seonji Gukbap", "alternateName": "선지국밥", "offers": {"@type": "Offer", "price": "11000", "priceCurrency": "KRW"}},
+          {"@type": "MenuItem", "name": "Dwaeji Gukbap", "alternateName": "돼지국밥", "offers": {"@type": "Offer", "price": "10000", "priceCurrency": "KRW"}},
+          {"@type": "MenuItem", "name": "Sogopchang Gukbap", "alternateName": "소곱창국밥", "description": "Gukbap with beef tripe", "offers": {"@type": "Offer", "price": "11000", "priceCurrency": "KRW"}},
+          {"@type": "MenuItem", "name": "Kimchi Jjigae", "alternateName": "김치찌개", "offers": {"@type": "Offer", "price": "11000", "priceCurrency": "KRW"}}
+        ]
+      }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
@@ -73,6 +149,9 @@
   .photos { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 8px; margin-top: 24px; }
   .photos div { aspect-ratio: 4/3; background: var(--line); border-radius: 8px; overflow: hidden; }
 
+  .repo { margin: 28px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+  .repo span { color: var(--muted); font: 13px ui-monospace, Consolas, monospace; overflow-wrap: anywhere; }
+
   footer { border-top: 1px solid var(--line); padding: 28px 0 44px; color: var(--muted); font-size: 13px; line-height: 1.9; }
   @media (max-width: 760px) {
     nav { display: none; }
@@ -87,16 +166,16 @@
 <body>
 <header>
   <div class="wrap">
-    <a class="brand" href="#">Janggeumine <span>AI</span></a>
-    <nav><a href="#product">Product</a><a href="#claude">Built on Claude</a><a href="#roadmap">Roadmap</a><a href="#pilot">Pilot restaurant</a><a href="#company">Company</a></nav>
+    <a class="brand" href="./">Janggeumine <span>AI</span></a>
+    <nav><a href="#product">Product</a><a href="#claude">Built on Claude</a><a href="#built">Prototype</a><a href="#roadmap">Roadmap</a><a href="#pilot">Pilot restaurant</a><a href="#company">Company</a></nav>
   </div>
 </header>
 
 <main>
   <div class="hero wrap">
-    <span class="badge">Built entirely on Anthropic's Claude · In development</span>
+    <span class="badge">Built entirely on Anthropic's Claude · Open-source prototype, not live yet</span>
     <h1>AI ordering and reservations for small Korean restaurants, built only with Claude.</h1>
-    <p>Janggeumine AI answers customers, takes takeout and table orders, and manages bookings in natural Korean and English, so a small kitchen team can stop running to the phone at the lunch rush. Every part of it, from the conversations to the code, is built on Claude.</p>
+    <p>Janggeumine AI is being built to answer customers, take takeout and table orders, and manage bookings in natural Korean and English, so a small kitchen team can stop running to the phone at the lunch rush. Every part of it, from the conversations to the code, is built on Claude.</p>
     <a class="btn primary" href="#claude">How we use Claude</a>
     <a class="btn ghost" href="#pilot">Our pilot restaurant</a>
   </div>
@@ -117,26 +196,29 @@
     <div class="wrap split">
       <div>
         <h2>The product</h2>
-        <p class="sub">Two Claude agents that sit between the customer and the kitchen.</p>
+        <p class="sub">One Claude agent that handles both ordering and reservations. Items marked Prototype work in the open-source code below; items marked Planned are not built yet.</p>
         <div class="stack">
-          <div class="card"><h3>1. Ordering agent</h3>
-            <ul><li>Takes takeout and table orders in plain Korean or English</li>
-              <li>Answers menu, spice level and allergen questions from the restaurant's own menu data</li>
-              <li>Confirms the order back to the customer and sends a clean ticket to the kitchen</li></ul></div>
-          <div class="card"><h3>2. Reservation agent</h3>
-            <ul><li>Books tables and group reservations against the real seating calendar</li>
-              <li>Sends confirmations and reminders, handles changes and cancellations</li>
-              <li>Hands off to a human whenever it is unsure</li></ul></div>
+          <div class="card"><h3>1. Ordering</h3>
+            <ul><li>Prototype: takes takeout and dine-in orders in Korean or English; prices and totals are computed in code</li>
+              <li>Prototype: reads the order back and waits for a yes before placing it</li>
+              <li>Prototype: ingredient and allergen questions go to staff, because the restaurant's ingredient data is not entered yet</li>
+              <li>Planned: sending orders to the kitchen or POS</li></ul></div>
+          <div class="card"><h3>2. Reservations</h3>
+            <ul><li>Prototype: checks availability and books or cancels tables within opening hours, break time and a seat limit (real seat count still to be confirmed)</li>
+              <li>Prototype: large groups and anything its tools can't do are handed to staff</li>
+              <li>Planned: confirmation and reminder messages</li></ul></div>
         </div>
       </div>
       <div class="chat" aria-label="Example conversation">
-        <div class="label">Design preview of the ordering agent (not live yet)</div>
-        <div class="msg user">내일 저녁 7시 4명 예약되나요? 아이 한 명 있어요</div>
-        <div class="tool">→ tool: check_availability(date=tomorrow, time=19:00, party=4)</div>
-        <div class="msg bot">네, 내일 19:00에 4명 자리 있습니다. 아기 의자도 준비해 둘까요?</div>
-        <div class="msg user">Can I get two dwaeji gukbap for takeout, one without green onion?</div>
-        <div class="tool">→ tool: create_order(items=[dwaeji_gukbap×2], notes="1× no green onion")</div>
-        <div class="msg bot">Got it: 2 Dwaeji Gukbap (₩20,000), one without green onion. What time will you pick up?</div>
+        <div class="label">Illustrative conversation using the prototype's tools (not live yet)</div>
+        <div class="msg user">내일 저녁 7시 4명 예약되나요?</div>
+        <div class="tool">→ tool: check_availability(date="&lt;tomorrow, YYYY-MM-DD&gt;", time="19:00", party_size=4)</div>
+        <div class="msg bot">네, 내일 19:00에 4명 예약 가능합니다. 예약자 성함과 연락처를 알려 주세요.</div>
+        <div class="msg user">Two dwaeji gukbap for takeout at 12:20, one without green onion. Name is Kim.</div>
+        <div class="msg bot">Two Dwaeji Gukbap for takeout at 12:20 under Kim, one without green onion. Shall I place the order?</div>
+        <div class="msg user">Yes</div>
+        <div class="tool">→ tool: create_order(order_type="takeout", pickup_time="12:20", customer_name="Kim", items=[dwaeji_gukbap×1, dwaeji_gukbap×1 notes="no green onion"])</div>
+        <div class="msg bot">Order placed. Total ₩20,000, pickup at 12:20.</div>
       </div>
     </div>
   </section>
@@ -144,26 +226,42 @@
   <section id="claude">
     <div class="wrap">
       <h2>Built entirely on Claude</h2>
-      <p class="sub">We use one model family for everything. No other LLM provider is in the product or in our workflow.</p>
+      <p class="sub">We use one model family for the product: Claude. No other LLM provider is in the product.</p>
       <div>
         <div class="row"><b>Conversation &amp; reasoning</b><p>Claude understands each customer message, handles multi-item, multi-step and ambiguous requests, and replies in the customer's language (Korean or English).</p></div>
-        <div class="row"><b>Tool use</b><p>Claude calls our own tools to look up the menu, check seat availability, create orders and reservations. The restaurant's data stays the source of truth; Claude never invents a menu item or a free table.</p></div>
-        <div class="row"><b>Model routing</b><p>We plan to route simple, high-volume intents (opening hours, "is there a table now?") to Claude Haiku for speed and cost, and complex orders and edge cases to Claude Sonnet.</p></div>
-        <div class="row"><b>Prompt caching</b><p>The menu, policies and system prompt are the same for every conversation, so we design around Claude prompt caching to keep latency and cost low enough for a single restaurant.</p></div>
-        <div class="row"><b>Safety &amp; handoff</b><p>Allergen answers come only from the restaurant's ingredient data, and the agent hands off to staff when it is not certain.</p></div>
-        <div class="row"><b>How we build</b><p>We build the product with Claude Code, and use Claude for planning, writing and testing. Claude is our only AI tool.</p></div>
+        <div class="row"><b>Tool use</b><p>In our prototype, Claude calls our own Python tools to look up the menu and opening hours, check table availability, create reservations and orders, and hand off to staff. Menu items, prices and free tables come from those tools, not from the model.</p></div>
+        <div class="row"><b>Model routing</b><p>The prototype routes simple, high-volume questions (opening hours, menu prices) to Claude Haiku for speed and cost, and orders, reservations and harder cases to Claude Sonnet.</p></div>
+        <div class="row"><b>Prompt caching</b><p>The menu, policies and system prompt are the same for every conversation, so the prototype marks that static prompt for Claude prompt caching. Only the conversation itself changes from request to request, which should keep latency and cost low; we will measure it in the pilot.</p></div>
+        <div class="row"><b>Safety &amp; handoff</b><p>The prototype has a staff-handoff tool: when Claude is not certain, it passes the conversation to a person instead of guessing. Allergen answers will come only from the restaurant's own ingredient data, which we have not entered yet.</p></div>
+        <div class="row"><b>How we build</b><p>We build the product with Claude Code, and use Claude for planning, writing and testing it.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section id="built">
+    <div class="wrap">
+      <h2>What we've built so far</h2>
+      <p class="sub">An open-source prototype of the ordering and reservation agent, written in Python on the Claude API. <b>Status: prototype.</b> It is not connected to our phone line or any ordering channel yet and has not been used by customers.</p>
+      <div class="grid">
+        <div class="card"><h3>Tool-use agent</h3><p>A Python agent loop on the Claude Messages API. Claude works through our own tools:</p>
+          <ul><li>menu and opening hours</li><li>table availability</li><li>reservations and orders</li><li>handoff to staff</li></ul></div>
+        <div class="card"><h3>Haiku / Sonnet routing</h3><p>Simple, high-volume questions go to Claude Haiku; orders, reservations and harder cases go to Claude Sonnet.</p></div>
+        <div class="card"><h3>Prompt caching</h3><p>The static tool and policy prompt is marked for Claude prompt caching. On Sonnet it is long enough to cache; on Haiku it is still below the minimum cacheable length. We have not measured cache hits against the live API yet.</p></div>
+        <div class="card"><h3>Offline tests</h3><p>A test suite that runs offline, without calling the API, so the tools and the agent loop can be checked on every change.</p></div>
+      </div>
+      <p class="repo"><a class="btn primary" href="https://github.com/waterhan0493-tech/janggeumine-ai">View the source on GitHub</a>
+        <span>github.com/waterhan0493-tech/janggeumine-ai</span></p>
     </div>
   </section>
 
   <section id="roadmap">
     <div class="wrap">
       <h2>Roadmap</h2>
-      <p class="sub">We are a small, self-funded team. We start with our own restaurant, where we feel the problem every day.</p>
+      <p class="sub">We are an owner-run, self-funded restaurant. We start with our own restaurant, where we feel the problem every day.</p>
       <ul class="timeline">
         <li><span class="when">Dec 2024</span><span>Janggeumine Gukbap opens in Suwon, Korea.</span></li>
-        <li><span class="when">Oct 2026<span class="now">now</span></span><span>Building the ordering and reservation agents on the Claude API.</span></li>
-        <li><span class="when">Next</span><span>Pilot inside our own restaurant with real customers; measure answered calls, order accuracy and no-shows.</span></li>
+        <li><span class="when">Oct 2026<span class="now">now</span></span><span>Prototype built: an open-source ordering and reservation agent on the Claude API (<a href="#built">see above</a>). Next: pilot it in our own restaurant.</span></li>
+        <li><span class="when">Next</span><span>Pilot inside our own restaurant with real customers through a text channel; measure completed bookings and orders, staff handoffs and cost per conversation.</span></li>
         <li><span class="when">After the pilot</span><span>Offer the same Claude-powered assistant to other small restaurants in Korea.</span></li>
       </ul>
     </div>
@@ -184,8 +282,11 @@
   <section id="company">
     <div class="wrap">
       <h2>Company</h2>
-      <p class="sub">Janggeumine Gukbap (장금이네국밥), founded December 2024, Suwon, South Korea. Founder &amp; owner: Sunmi Na.<br>
-        Contact: <a href="mailto:waterhan0493@yunnakji.com">waterhan0493@yunnakji.com</a></p>
+      <p class="sub">Janggeumine Gukbap (장금이네국밥), founded December 2024, Suwon, South Korea. Founder &amp; owner: Sunmi Na (나선미).<br>
+        Sole proprietorship, business registration no. 204-33-52068. Self-funded; no outside investment.<br>
+        Address: 102, 101 Sinwon-ro, Yeongtong-gu, Suwon-si, Gyeonggi-do, Republic of Korea.<br>
+        Janggeumine AI is the name of the product we are building; the company behind it is Janggeumine Gukbap.<br>
+        Website: <a href="https://yunnakji.com/">yunnakji.com</a> · Contact: <a href="mailto:waterhan0493@yunnakji.com">waterhan0493@yunnakji.com</a></p>
     </div>
   </section>
 </main>
@@ -194,6 +295,7 @@
   <div class="wrap">
     상호 장금이네국밥 · 대표 나선미 · 사업자등록번호 204-33-52068<br>
     경기도 수원시 영통구 신원로 101, 102호 · 102, 101 Sinwon-ro, Yeongtong-gu, Suwon-si, Gyeonggi-do, Korea<br>
+    <a href="privacy.html">Privacy</a> · <a href="https://github.com/waterhan0493-tech/janggeumine-ai">Prototype source on GitHub</a> · <a href="mailto:waterhan0493@yunnakji.com">waterhan0493@yunnakji.com</a><br>
     © 2026 Janggeumine Gukbap. Claude is a trademark of Anthropic, PBC. Janggeumine AI is not affiliated with Anthropic.
   </div>
 </footer>
